@@ -14,7 +14,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +30,9 @@ import { MatTableModule } from '@angular/material/table'
     MainMenuComponent
   ],
   imports: [
+    MatExpansionModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatTableModule,
     BrowserAnimationsModule,
     BrowserModule,

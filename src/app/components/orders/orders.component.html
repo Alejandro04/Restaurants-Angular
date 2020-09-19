@@ -1,1 +1,41 @@
-<p>orders works!</p>
+<div class="header-title">
+  <h1> {{title}} </h1>
+</div>
+<mat-accordion>
+  <mat-expansion-panel class="accordion-panel" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Generar órden
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="orders-form-container">
+      <div>
+        <mat-selection-list #plate>
+          <mat-list-option *ngFor="let plate of plates">
+            {{plate}}
+          </mat-list-option>
+        </mat-selection-list>
+        <p>
+          Options selected: {{plate.selectedOptions.selected.length}}
+        </p>
+      </div>
+      <div class="form-order-container">
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label># Orden</mat-label>
+            <input matInput maxlength="3" placeholder="012">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Cliente</mat-label>
+            <input matInput placeholder="Alejo Roa">
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-raised-button color="primary">Envíar</button>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

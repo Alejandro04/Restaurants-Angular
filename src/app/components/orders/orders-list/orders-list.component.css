@@ -1,8 +1,7 @@
-table {
+table{
   width: 100%;
-  margin: 10px;
+  margin-top: 100px;
 }
-  
-th.mat-sort-header-sorted {
-  color: black;
+.body-items{
+  text-align: center;
 }

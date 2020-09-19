@@ -1,0 +1,22 @@
+.header-title{
+    text-align: center;
+}
+.form-order{
+    text-align: center;
+}
+.accordion-panel{
+    width: 90%;
+    margin: auto;
+}
+.orders-form-container{
+    display: flex;
+    justify-content: space-between;
+}
+.form-order-container{
+    width: 50%; 
+    text-align: right
+}
+.form-plates-container{
+    width: 50%; 
+    text-align: left;
+}
