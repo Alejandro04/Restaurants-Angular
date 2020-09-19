@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,4 +16,9 @@ export class ServicesService {
     order: new FormControl(''),
     status: new FormControl(false)
   });
+
+  getOrders() { }
+  addOrder() { }
+  updateOrder() { }
+  deleteOrder() { }
 }

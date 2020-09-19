@@ -19,6 +19,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 
+// 1. Import the libs you need
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCw_YaqUuqU3gjzoDXewvWfNLImQwsiTmc",
+  authDomain: "angular-restaurants.firebaseapp.com",
+  databaseURL: "https://angular-restaurants.firebaseio.com",
+  projectId: "angular-restaurants",
+  storageBucket: "angular-restaurants.appspot.com",
+  messagingSenderId: "384301455759",
+  appId: "1:384301455759:web:00ad4505cd9646110c93fa",
+  measurementId: "G-GKW2H208ZB"
+};
 
 @NgModule({
   declarations: [
@@ -30,6 +46,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MainMenuComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule, // storage
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,

@@ -11,8 +11,8 @@
     <div class="orders-form-container">
       <div>
         <mat-selection-list #plate>
-          <mat-list-option *ngFor="let plate of plates">
-            {{plate}}
+          <mat-list-option *ngFor="let plate of plates | async">
+            {{plate.name}}
           </mat-list-option>
         </mat-selection-list>
         <p>
@@ -39,3 +39,4 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+<app-orders-list [orders]="orders"></app-orders-list>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-orders',
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class OrdersComponent implements OnInit {
   title: string = 'Órdenes'
   panelOpenState = false;
-  plates: string[] = ['Hamburguesa', 'Pizza', 'Perritos', ];
+  plates: Observable<any[]>;
+  orders: Observable<any[]>;
 
-  constructor() { }
+  constructor(firestore: AngularFirestore) {
+    this.plates = firestore.collection('plates').valueChanges();
+    this.orders = firestore.collection('orders').valueChanges();
+  }
 
   ngOnInit(): void {
   }
