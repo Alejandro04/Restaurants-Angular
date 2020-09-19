@@ -21,5 +21,5 @@ export class OrdersListComponent {
     this.dataSource = this.orders
   }
 
-  displayedColumns: string[] = ['customer', 'order', 'plate'];
+  displayedColumns: string[] = ['customer', 'order', 'plate', 'edit', 'delete'];
 }

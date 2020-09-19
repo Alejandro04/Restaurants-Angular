@@ -24,6 +24,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { PlatesComponent } from './components/plates/plates.component';
+import { PlatesListComponent } from './components/plates/plates-list/plates-list.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCw_YaqUuqU3gjzoDXewvWfNLImQwsiTmc",
@@ -43,7 +45,9 @@ const firebaseConfig = {
     FormComponent,
     OrdersComponent,
     OrdersListComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    PlatesComponent,
+    PlatesListComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
