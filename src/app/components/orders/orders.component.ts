@@ -6,7 +6,8 @@ import { FormControl } from '@angular/forms';
 interface Orders {
   customer: string,
   order: string,
-  plate: any
+  plate: any,
+  date: any
 }
 
 interface Plate {
@@ -38,14 +39,14 @@ export class OrdersComponent implements OnInit {
 
   addProduct(plate){
     this.platesSelected.push(plate.name)
-    console.log(this.platesSelected)
   }
 
   createOrder() {
     const order = this.order.value;
     const customer = this.customer.value;
     const plate = this.platesSelected;
-    const data: Orders = { order, customer, plate };
+    const date = new Date();
+    const data: Orders = { order, customer, plate, date };
     this.firestore.collection('orders').add(data)
   }
 

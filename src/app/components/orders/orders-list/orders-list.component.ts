@@ -4,7 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 interface Orders {
   customer: string,
   order: string,
-  plate: any
+  plate: any,
+  date: string
 }
 
 @Component({
@@ -21,5 +22,12 @@ export class OrdersListComponent {
     this.dataSource = this.orders
   }
 
-  displayedColumns: string[] = ['customer', 'order', 'plate', 'edit', 'delete'];
+  displayedColumns: string[] = [
+    'customer', 
+    'order', 
+    'plate', 
+    'date',
+    'edit', 
+    'delete'
+  ];
 }
