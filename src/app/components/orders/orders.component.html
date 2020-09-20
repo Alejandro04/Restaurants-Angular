@@ -30,7 +30,11 @@
           </mat-form-field>
         </div>
         <div>
-          <button mat-raised-button color="primary" (click)="createOrder()">Envíar</button>
+          <button 
+          mat-raised-button 
+          color="primary" 
+          (click)="createOrder()"
+          [disabled]="order.value === '' || customer.value ===  '' || platesSelected.length === 0">Envíar</button>
         </div>
       </div>
     </div>
