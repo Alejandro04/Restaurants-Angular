@@ -5,3 +5,8 @@ table{
 .body-items{
   text-align: center;
 }
+.orders-list-table{
+  width: 90%;
+  margin: auto;
+  margin-bottom: 40px;
+}
