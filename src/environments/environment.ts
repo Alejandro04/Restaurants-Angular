@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   configFirebase: {
-    apiKey: "AIzaSyCw_YaqUuqU3gjzoDXewvWfNLImQwsiTmc",
-    authDomain: "angular-restaurants.firebaseapp.com",
-    databaseURL: "https://angular-restaurants.firebaseio.com",
-    projectId: "angular-restaurants",
-    storageBucket: "angular-restaurants.appspot.com",
-    messagingSenderId: "384301455759",
-    appId: "1:384301455759:web:00ad4505cd9646110c93fa",
-    measurementId: "G-GKW2H208ZB"
+    apiKey: "AIzaSyAgeB8lo8JDVvU9XLD4baGeb3zKqTQAPkM",
+    authDomain: "restaurant-angular-5816d.firebaseapp.com",
+    databaseURL: "https://restaurant-angular-5816d.firebaseio.com",
+    projectId: "restaurant-angular-5816d",
+    storageBucket: "restaurant-angular-5816d.appspot.com",
+    messagingSenderId: "686137195861",
+    appId: "1:686137195861:web:06583ff6a0b5ffb137c3dc",
+    measurementId: "G-32S11W9BVT"
   }
 };
 
