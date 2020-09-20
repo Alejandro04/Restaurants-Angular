@@ -11,29 +11,26 @@
     <div class="orders-form-container">
       <div>
         <mat-selection-list #plate>
-          <mat-list-option *ngFor="let plate of plates | async">
+          <mat-list-option *ngFor="let plate of plates | async" (click)="addProduct(plate)">
             {{plate.name}}
           </mat-list-option>
         </mat-selection-list>
-        <p>
-          Options selected: {{plate.selectedOptions.selected.length}}
-        </p>
       </div>
       <div class="form-order-container">
         <div>
           <mat-form-field class="example-full-width">
             <mat-label># Orden</mat-label>
-            <input matInput maxlength="3" placeholder="012">
+            <input matInput maxlength="3" placeholder="012" [formControl]="order" >
           </mat-form-field>
         </div>
         <div>
           <mat-form-field class="example-full-width">
             <mat-label>Cliente</mat-label>
-            <input matInput placeholder="Alejo Roa">
+            <input matInput placeholder="Alejo Roa" [formControl]="customer">
           </mat-form-field>
         </div>
         <div>
-          <button mat-raised-button color="primary">Envíar</button>
+          <button mat-raised-button color="primary" (click)="createOrder()">Envíar</button>
         </div>
       </div>
     </div>
