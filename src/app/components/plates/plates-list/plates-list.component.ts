@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 
 @Component({
@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 export class PlatesListComponent {
 
   @Input() plates: any[];
+  @Output() plateEvent = new EventEmitter<string>();
   dataSource: MatTableModule;
 
   ngOnChanges(): void {
@@ -16,5 +17,9 @@ export class PlatesListComponent {
   }
 
   displayedColumns: string[] = ['name', 'edit', 'delete'];
+
+  addPlateToForm(value: string) {
+    this.plateEvent.emit(value);
+  }
 
 }

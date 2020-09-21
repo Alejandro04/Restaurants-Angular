@@ -7,7 +7,7 @@ interface Orders {
   customer: string,
   order: string,
   plate: any,
-  date: any
+  date: any,
 }
 
 interface Plate {

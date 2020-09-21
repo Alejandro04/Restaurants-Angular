@@ -1,4 +1,22 @@
 <div class="header-title">
-    <h1> {{title}} </h1>
+  <h1> {{title}} </h1>
 </div>
-<app-plates-list [plates]="plates"></app-plates-list>
+<mat-accordion>
+  <mat-expansion-panel class="accordion-panel" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Administrar platos
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label># Nombre</mat-label>
+        <input matInput placeholder="Pizza" [formControl]="name">
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="createPlate()" [disabled]="name.value === ''">Envíar</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<app-plates-list (plateEvent)="addPlateToForm($event)" [plates]="plates"></app-plates-list>

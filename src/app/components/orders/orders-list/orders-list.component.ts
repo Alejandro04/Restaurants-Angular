@@ -26,8 +26,6 @@ export class OrdersListComponent {
     'customer', 
     'order', 
     'plate', 
-    'date',
-    'edit', 
-    'delete'
+    'date'
   ];
 }
