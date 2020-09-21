@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
@@ -16,15 +15,13 @@ interface Plate {
 })
 export class PlatesComponent {
   title: string = 'Platos'
-  panelOpenState = false;
   plates: Observable<any[]>;
   plate: Observable<any>;
   name = new FormControl('');
   action: boolean = true;
 
-  constructor(private firestore: AngularFirestore, private db: AngularFireDatabase) {
+  constructor(private firestore: AngularFirestore) {
     this.plates = firestore.collection('plates').valueChanges();
-    this.plate = db.object('plates').valueChanges();
     this.action = true
   }
 
@@ -37,7 +34,7 @@ export class PlatesComponent {
       this.firestore.collection('plates').add(data)
     } else {
       // update
-      
+
       // get record for name
       // update record 
     }
