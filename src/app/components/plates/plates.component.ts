@@ -16,8 +16,9 @@ interface Plate {
 export class PlatesComponent {
   title: string = 'Platos'
   oldNameForSearchAndAction: string;
-  panelOpenState = false;
+  panelOpenState = true;
   action: boolean = true;
+  step: number = 0;
   plates: Observable<any[]>;
   plate: Observable<any>;
   tutorials: Observable<any[]>;

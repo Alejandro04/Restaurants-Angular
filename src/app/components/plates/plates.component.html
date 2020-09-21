@@ -2,7 +2,7 @@
   <h1> {{title}} </h1>
 </div>
 <mat-accordion>
-  <mat-expansion-panel class="accordion-panel" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <mat-expansion-panel class="accordion-panel" [expanded]="step === 0" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Administrar platos
