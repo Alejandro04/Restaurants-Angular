@@ -51,4 +51,13 @@ export class PlatesComponent {
     this.name.setValue(plate)
     this.oldNameForSearchAndAction = plate
   }
+
+  deletePlateForRecords(value: string){
+    let doc = this.firestore.collection('plates', ref => ref.where('name', '==', value));
+      doc.snapshotChanges().subscribe((res: any) => {
+        let id = res[0].payload.doc.id;
+        this.firestore.collection('plates').doc(id).delete()
+        this.name.setValue("")
+      });
+  }
 }

@@ -10,6 +10,7 @@ export class PlatesListComponent {
 
   @Input() plates: any[];
   @Output() plateEvent = new EventEmitter<string>();
+  @Output() deletePlate = new EventEmitter<string>();
   dataSource: MatTableModule;
 
   ngOnChanges(): void {
@@ -20,6 +21,10 @@ export class PlatesListComponent {
 
   addPlateToForm(value: string) {
     this.plateEvent.emit(value);
+  }
+
+  deletePlateForRecords(value: string){
+    this.deletePlate.emit(value)
   }
 
 }

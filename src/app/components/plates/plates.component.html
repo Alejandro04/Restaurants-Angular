@@ -19,4 +19,8 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
-<app-plates-list (plateEvent)="addPlateToForm($event)" [plates]="plates"></app-plates-list>
+<app-plates-list 
+(plateEvent)="addPlateToForm($event)" 
+(deletePlate)="deletePlateForRecords($event)"
+[plates]="plates">
+</app-plates-list>
