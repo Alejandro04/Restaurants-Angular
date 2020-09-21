@@ -1,12 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-
-interface Orders {
-  customer: string,
-  order: string,
-  plate: any,
-  date: string
-}
 
 @Component({
   selector: 'app-orders-list',

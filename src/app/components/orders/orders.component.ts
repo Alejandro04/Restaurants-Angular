@@ -48,6 +48,8 @@ export class OrdersComponent implements OnInit {
     const date = new Date();
     const data: Orders = { order, customer, plate, date };
     this.firestore.collection('orders').add(data)
+    this.order.setValue("")
+    this.customer.setValue("")
   }
 
 }

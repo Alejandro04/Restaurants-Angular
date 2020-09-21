@@ -15,10 +15,13 @@ interface Plate {
 })
 export class PlatesComponent {
   title: string = 'Platos'
+  oldNameForSearchAndAction: string;
+  panelOpenState = false;
+  action: boolean = true;
   plates: Observable<any[]>;
   plate: Observable<any>;
+  tutorials: Observable<any[]>;
   name = new FormControl('');
-  action: boolean = true;
 
   constructor(private firestore: AngularFirestore) {
     this.plates = firestore.collection('plates').valueChanges();
@@ -34,15 +37,18 @@ export class PlatesComponent {
       this.firestore.collection('plates').add(data)
     } else {
       // update
-
-      // get record for name
-      // update record 
+      let doc = this.firestore.collection('plates', ref => ref.where('name', '==', this.oldNameForSearchAndAction));
+      doc.snapshotChanges().subscribe((res: any) => {
+        let id = res[0].payload.doc.id;
+        this.firestore.collection('plates').doc(id).update({ name: name });
+        this.name.setValue("")
+      });
     }
   }
 
   addPlateToForm(plate: any) {
     this.action = false
     this.name.setValue(plate)
+    this.oldNameForSearchAndAction = plate
   }
-
 }
