@@ -16,11 +16,11 @@ interface Plate {
 })
 export class PlatesComponent {
   title: string = 'Platos'
+  panelOpenState = false;
   plates: Observable<any[]>;
   plate: Observable<any>;
   name = new FormControl('');
   action: boolean = true;
-  platesItems: any;
 
   constructor(private firestore: AngularFirestore, private db: AngularFireDatabase) {
     this.plates = firestore.collection('plates').valueChanges();
