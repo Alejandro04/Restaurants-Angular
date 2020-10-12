@@ -45,7 +45,8 @@ export class OrdersComponent implements OnInit {
     const order = this.order.value;
     const customer = this.customer.value;
     const plate = this.platesSelected;
-    const date = new Date();
+    const date = Date.now();
+
     const data: Orders = { order, customer, plate, date };
     this.firestore.collection('orders').add(data)
     this.order.setValue("")
