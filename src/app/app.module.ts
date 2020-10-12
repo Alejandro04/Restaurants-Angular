@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormComponent } from './components/form/form.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrdersListComponent } from './components/orders/orders-list/orders-list.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
@@ -27,22 +26,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PlatesComponent } from './components/plates/plates.component';
 import { PlatesListComponent } from './components/plates/plates-list/plates-list.component';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAgeB8lo8JDVvU9XLD4baGeb3zKqTQAPkM",
-  authDomain: "restaurant-angular-5816d.firebaseapp.com",
-  databaseURL: "https://restaurant-angular-5816d.firebaseio.com",
-  projectId: "restaurant-angular-5816d",
-  storageBucket: "restaurant-angular-5816d.appspot.com",
-  messagingSenderId: "686137195861",
-  appId: "1:686137195861:web:06583ff6a0b5ffb137c3dc",
-  measurementId: "G-32S11W9BVT"
-};
+import { environment } from '../environments/environment'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FormComponent,
     OrdersComponent,
     OrdersListComponent,
     MainMenuComponent,
@@ -51,7 +40,7 @@ const firebaseConfig = {
   ],
   imports: [
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage

@@ -19,6 +19,7 @@ interface Plate {
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
+
 export class OrdersComponent implements OnInit {
   title: string = 'Órdenes'
   panelOpenState = false;
@@ -52,5 +53,4 @@ export class OrdersComponent implements OnInit {
     this.order.setValue("")
     this.customer.setValue("")
   }
-
 }
