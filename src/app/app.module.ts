@@ -28,6 +28,11 @@ import { PlatesListComponent } from './components/plates/plates-list/plates-list
 
 import { environment } from '../environments/environment'
 
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin'
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +44,11 @@ import { environment } from '../environments/environment'
     PlatesListComponent
   ],
   imports: [
+    NgxsModule.forRoot([], {
+      developmentMode: !environment.production
+    }),
+    NgxsLoggerPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore

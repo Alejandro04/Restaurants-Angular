@@ -5,7 +5,8 @@ import { FormControl } from '@angular/forms';
 
 interface Plate {
   id: string,
-  name: string
+  name: string,
+  price: number
 }
 
 @Component({
@@ -23,6 +24,8 @@ export class PlatesComponent {
   plate: Observable<any>;
   tutorials: Observable<any[]>;
   name = new FormControl('');
+  price = new FormControl('');
+  test: string = 'test';
 
   constructor(private firestore: AngularFirestore) {
     this.plates = firestore.collection('plates').valueChanges();
@@ -31,8 +34,9 @@ export class PlatesComponent {
 
   createPlate() {
     const name = this.name.value;
+    const price = this.price.value;
     const id = this.firestore.createId();
-    const data: Plate = { id, name };
+    const data: Plate = { id, name, price};
     if (this.action === true) {
       // create
       this.firestore.collection('plates').add(data)
@@ -41,16 +45,18 @@ export class PlatesComponent {
       let doc = this.firestore.collection('plates', ref => ref.where('name', '==', this.oldNameForSearchAndAction));
       doc.snapshotChanges().subscribe((res: any) => {
         let id = res[0].payload.doc.id;
-        this.firestore.collection('plates').doc(id).update({ name: name });
+        this.firestore.collection('plates').doc(id).update({ name: name, price: price });
         this.name.setValue("")
+        this.price.setValue("")
       });
     }
   }
 
   addPlateToForm(plate: any) {
     this.action = false
-    this.name.setValue(plate)
-    this.oldNameForSearchAndAction = plate
+    this.name.setValue(plate.name)
+    this.price.setValue(plate.price)
+    this.oldNameForSearchAndAction = plate.name
   }
 
   deletePlateForRecords(value: string){
