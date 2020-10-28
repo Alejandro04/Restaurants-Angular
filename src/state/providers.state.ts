@@ -41,7 +41,7 @@ export class ProvidersState {
   }
 
   @Action(GetProviders)
-  getBook({
+  getProvider({
     getState,
     setState,
   }: StateContext<ProvidersStateModel>): Observable<Provider[]> {
@@ -54,7 +54,7 @@ export class ProvidersState {
   }
 
   @Action(UpdateProvider)
-  updateBook(
+  updateProvider(
     { getState, setState }: StateContext<ProvidersStateModel>,
     { payload }: UpdateProvider
   ): Observable<Provider[]> {
