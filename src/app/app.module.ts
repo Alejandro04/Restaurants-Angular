@@ -32,6 +32,8 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin'
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
 
+import { ProvidersState } from '../state/providers.state'
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
     PlatesListComponent
   ],
   imports: [
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot([ProvidersState], {
       developmentMode: !environment.production
     }),
     NgxsLoggerPluginModule.forRoot(),
