@@ -7,7 +7,7 @@ export class AddProvider {
 export class GetProviders {
   static readonly type = '[Providers] Get';
 }
-export class UpdateProviders {
+export class UpdateProvider {
   static readonly type = '[Providers] Update';
   constructor(public payload: Provider) {}
 }
