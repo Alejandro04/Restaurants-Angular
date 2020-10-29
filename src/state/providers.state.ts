@@ -5,6 +5,7 @@ import { ProvidersService } from '../app/shared/provider.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Provider } from '../app/shared/provider.interface';
+import { Selector } from '@ngxs/store';
 
 export class ProvidersStateModel {
   public providers: Provider[];
@@ -24,6 +25,11 @@ const defaults = {
 export class ProvidersState {
 
   constructor(private readonly providerSvc: ProvidersService) {}
+
+  @Selector()
+  public static getProvidersList({ providers }: ProvidersStateModel): Provider[] {
+    return providers;
+  }
 
   @Action(AddProvider)
   addProvider(
