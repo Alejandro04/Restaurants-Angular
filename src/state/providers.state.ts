@@ -36,11 +36,12 @@ export class ProvidersState {
     { getState, patchState }: StateContext<ProvidersStateModel>,
     { payload }: AddProvider
   ): Observable<Provider> {
+    console.log("estate")
     return this.providerSvc.addProvider(payload).pipe(
       tap((provider: Provider) => {
         const state = getState();
         patchState({
-          providers: [...state.providers],
+          providers: [...state.providers, provider],
         });
       })
     );

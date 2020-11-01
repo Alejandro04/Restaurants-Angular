@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import {  Provider } from '../../shared/provider.interface';
-import { GetProviders } from '../../../state/providers.actions';
+import { GetProviders, AddProvider } from '../../../state/providers.actions';
 import { Select, Store } from '@ngxs/store';
 import { ProvidersState } from './../../../state/providers.state';
 
@@ -29,10 +29,30 @@ export class ProvidersComponent implements OnInit {
   provider: Observable<any>;
   name = new FormControl('');
   phone = new FormControl('');
+  step: number = 0;
 
 
   ngOnInit(): void {
     
+  }
+
+  createProvider() {
+    const name = this.name.value;
+    const phone = this.phone.value;
+    const id = Math.floor((Math.random()*100)+1);
+    if (this.action === true) {
+      // create
+      const newProvider = {
+        id,
+        name,
+        phone
+      };
+      this.store.dispatch(new AddProvider(newProvider));
+    } else {
+      // update
+      console.log(id)
+      console.log("update")
+    }
   }
 
 }

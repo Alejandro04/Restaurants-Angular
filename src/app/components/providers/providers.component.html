@@ -17,16 +17,12 @@
       <div>
         <mat-form-field class="example-full-width">
           <mat-label># Teléfono </mat-label>
-          <input matInput placeholder="04247894561" [formControl]="provider">
+          <input matInput placeholder="04247894561" [formControl]="phone">
         </mat-form-field>
       </div>
       <div>
-        <button mat-raised-button color="primary" (click)="createProvider()" [disabled]="name.value === ''">Envíar</button>
+        <button mat-raised-button color="primary" (click)="createProvider()" [disabled]="name.value === '' || phone.value === ''">Envíar</button>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-  <app-provider-list 
-  (providerEvent)="addProviderToForm($event)" 
-  (deleteProvider)="deleteProviderForRecords($event)"
-  [providers]="providers$">
-  </app-provider-list>
+ 
