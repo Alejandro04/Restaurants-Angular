@@ -18,7 +18,6 @@ export class ProvidersListComponent {
 
   ngOnChanges(): void {
     this.dataSource = this.providers
-    console.log("proveedores lista", this.providers)
   }
 
   displayedColumns: string[] = ['name', 'phone', 'edit', 'delete'];
