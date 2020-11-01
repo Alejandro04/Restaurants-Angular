@@ -64,7 +64,6 @@ export class ProvidersState {
     { getState, setState }: StateContext<ProvidersStateModel>,
     { payload }: UpdateProvider
   ): Observable<Provider[]> {
-    console.log("estate")
     return this.providerSvc.updateProvider(payload).pipe(
       tap((providers: Provider[]) => {
         const state = getState();
