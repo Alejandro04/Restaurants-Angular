@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import {  Provider } from '../../shared/provider.interface';
-import { GetProviders, AddProvider } from '../../../state/providers.actions';
+import { GetProviders, AddProvider, DeleteProvider, UpdateProvider } from '../../../state/providers.actions';
 import { Select, Store } from '@ngxs/store';
 import { ProvidersState } from './../../../state/providers.state';
 
@@ -18,7 +18,6 @@ export class ProvidersComponent implements OnInit {
   constructor(private store: Store) {
     this.store.dispatch(new GetProviders());
     this.action = true;
-  //  this.providers = this.providers$;
   }
 
   title: string = 'Proveedores'
@@ -53,6 +52,17 @@ export class ProvidersComponent implements OnInit {
       console.log(id)
       console.log("update")
     }
+  }
+
+  addProviderToForm(provider: any) {
+    this.action = false
+    this.name.setValue(provider.name)
+    this.phone.setValue(provider.phone)
+    this.oldNameForSearchAndAction = provider.name
+  }
+
+  deleteProviderForRecords(id: number){
+    this.store.dispatch(new DeleteProvider(id));
   }
 
 }

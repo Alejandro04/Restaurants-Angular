@@ -28,4 +28,7 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-<app-providers-list [providers]="providers$"></app-providers-list>
+<app-providers-list 
+[providers]="providers$"
+(providerEvent)="addProviderToForm($event)"
+(deleteProvider)="deleteProviderForRecords($event)" ></app-providers-list>

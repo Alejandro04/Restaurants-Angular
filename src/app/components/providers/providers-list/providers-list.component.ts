@@ -31,8 +31,8 @@ export class ProvidersListComponent {
     this.providerEvent.emit(provider);
   }
 
-  deleteProviderForRecords(value: string){
-    this.deleteProvider.emit(value)
+  deleteProviderForRecords(id: string){
+    this.deleteProvider.emit(id)
   }
 
 }
