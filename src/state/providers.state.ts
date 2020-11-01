@@ -5,6 +5,7 @@ import { ProvidersService } from '../app/shared/provider.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Provider } from '../app/shared/provider.interface';
+import { Selector } from '@ngxs/store';
 
 export class ProvidersStateModel {
   public providers: Provider[];
@@ -25,6 +26,11 @@ export class ProvidersState {
 
   constructor(private readonly providerSvc: ProvidersService) {}
 
+  @Selector()
+  public static getProvidersList({ providers }: ProvidersStateModel): Provider[] {
+    return providers;
+  }
+
   @Action(AddProvider)
   addProvider(
     { getState, patchState }: StateContext<ProvidersStateModel>,
@@ -34,7 +40,7 @@ export class ProvidersState {
       tap((provider: Provider) => {
         const state = getState();
         patchState({
-          providers: [...state.providers],
+          providers: [...state.providers, provider],
         });
       })
     );

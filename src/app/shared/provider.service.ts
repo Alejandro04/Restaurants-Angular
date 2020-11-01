@@ -16,6 +16,7 @@ export class ProvidersService {
   ];
 
   addProvider(provider: Provider): Observable<Provider> {
+    this.providers = Object.assign([], this.providers);
     this.providers.push(provider);
     return of(provider);
   }

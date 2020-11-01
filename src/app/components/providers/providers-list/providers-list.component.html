@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 plates-table">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon aria-hidden="false" (click)="addProviderToForm(element.id, element.name, element.phone)">edit</mat-icon>
+        </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon aria-hidden="false" (click)="deleteProviderForRecords(element.id)">delete</mat-icon>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,34 @@
+<div class="header-title">
+  <h1> {{title}} </h1>
+</div>
+<mat-accordion>
+  <mat-expansion-panel class="accordion-panel" [expanded]="step === 0" (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Agregar proveedor
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label># Nombre</mat-label>
+        <input matInput placeholder="Alejo" [formControl]="name">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label># Teléfono </mat-label>
+        <input matInput placeholder="04247894561" [formControl]="phone">
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="createProvider()"
+        [disabled]="name.value === '' || phone.value === ''">Envíar</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<app-providers-list 
+[providers]="providers$"
+(providerEvent)="addProviderToForm($event)"
+(deleteProvider)="deleteProviderForRecords($event)" ></app-providers-list>

@@ -32,7 +32,9 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin'
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
 
-import { ProvidersState } from '../state/providers.state'
+import { ProvidersState } from '../state/providers.state';
+import { ProvidersComponent } from './components/providers/providers.component';
+import { ProvidersListComponent } from './components/providers/providers-list/providers-list.component'
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { ProvidersState } from '../state/providers.state'
     OrdersListComponent,
     MainMenuComponent,
     PlatesComponent,
-    PlatesListComponent
+    PlatesListComponent,
+    ProvidersComponent,
+    ProvidersListComponent
   ],
   imports: [
     NgxsModule.forRoot([ProvidersState], {
