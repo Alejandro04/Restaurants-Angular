@@ -24,23 +24,19 @@ export class ProvidersComponent implements OnInit {
   oldNameForSearchAndAction: string;
   panelOpenState = true;
   action: boolean = true;
-  providers: Observable<any[]>;
-  provider: Observable<any>;
   name = new FormControl('');
   phone = new FormControl('');
+  providerID = new FormControl('');
   step: number = 0;
 
-
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   createProvider() {
     const name = this.name.value;
     const phone = this.phone.value;
-    const id = Math.floor((Math.random()*100)+1);
     if (this.action === true) {
       // create
+      const id = Math.floor((Math.random()*100)+1);
       const newProvider = {
         id,
         name,
@@ -49,8 +45,13 @@ export class ProvidersComponent implements OnInit {
       this.store.dispatch(new AddProvider(newProvider));
     } else {
       // update
-      console.log(id)
-      console.log("update")
+      const id = this.providerID.value
+      const updateProvider = {
+        id,
+        name,
+        phone
+      };
+      this.store.dispatch(new UpdateProvider(updateProvider));
     }
   }
 
@@ -58,6 +59,7 @@ export class ProvidersComponent implements OnInit {
     this.action = false
     this.name.setValue(provider.name)
     this.phone.setValue(provider.phone)
+    this.providerID.setValue(provider.id)
     this.oldNameForSearchAndAction = provider.name
   }
 
